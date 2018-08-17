@@ -17,11 +17,11 @@
 
 * {
     font-family: 'Roboto', 'Helveticy-Neue', Arial;
-    font-weight: 300;
 }
 
 body {
     counter-reset: h2counter;
+    font-weight: 300;
 }
 
 h1 {
@@ -48,12 +48,49 @@ p {
     line-height: 1.8em;
     hyphens: auto;
     text-align: justify;
+    font-weight: inherit;
 }
 
 h1, h2, h3, h4 {
+    font-weight: inherit;
     page-break-after: avoid;
 }
 
 div.page-break {
     page-break-after: always;
 }
+
+blockquote {
+    background-color: #ccc;
+    padding: 2mm;
+    color: black;
+    border-left: 1mm solid lightslategrey  
+}
+
+strong {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    color: #333;
+    margin: auto;
+  }
+
+  tr:nth-child(even) {
+    background: #ccc;
+  }
+
+  tr:nth-child(odd) {
+    background: white;
+  }
+
+  td, th {
+    border: 1px solid #bbb;
+    padding: 3mm;
+  }
+
+  th {
+    background: #777;
+    text-align: center;
+  }
