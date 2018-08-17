@@ -1,0 +1,14 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "md2pdf",
+            "type": "shell",
+            "command": "markdown-it ${file} -o ${fileDirname}/${fileBasenameNoExtension}.html && weasyprint ${fileDirname}/${fileBasenameNoExtension}.html ${fileDirname}/${fileBasenameNoExtension}.pdf -s ${workspaceFolder}/.vscode/markdown.style1.css -e utf8 && rm ${fileDirname}/${fileBasenameNoExtension}.html",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
