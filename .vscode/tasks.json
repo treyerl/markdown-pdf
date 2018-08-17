@@ -6,7 +6,7 @@
         {
             "label": "md2pdf",
             "type": "shell",
-            "command": "markdown-it ${file} -o ${fileDirname}/${fileBasenameNoExtension}.html && weasyprint ${fileDirname}/${fileBasenameNoExtension}.html ${fileDirname}/${fileBasenameNoExtension}.pdf -s ${workspaceFolder}/.vscode/markdown.style1.css -e utf8 && rm ${fileDirname}/${fileBasenameNoExtension}.html",
+            "command": "markdown-it ${file} -o ${fileDirname}/${fileBasenameNoExtension}.html; weasyprint ${fileDirname}/${fileBasenameNoExtension}.html ${fileDirname}/${fileBasenameNoExtension}.pdf -s ${workspaceFolder}/.vscode/markdown.style1.css -e utf8; del ${fileDirname}/${fileBasenameNoExtension}.html",
             "group": "build",
             "problemMatcher": []
         }
