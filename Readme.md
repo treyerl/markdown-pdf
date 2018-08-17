@@ -28,4 +28,5 @@ Visual Studio Code: PDF Preview (using [vscode-pdf plugin](https://marketplace.v
 
 ## Issues / Limitations
 
+* Check out `windows-specific` branch when using powershell (on Windows)
 * Code blocks / syntax highlighting: I didn't figure out yet how to do it. Perhaps it's not possible.
