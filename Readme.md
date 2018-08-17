@@ -6,7 +6,7 @@ Use .md files as source files to produce simple PDF files. Similar to (La)Tex, t
 * [markdown-it](https://github.com/markdown-it/markdown-it) to convert .md to .html
 * [weasyprint](https://weasyprint.org) to convert .html to .pdf
 
-Size on disk: 356MB (see B. Installation Size). As compared to 1.5GB of Latex (with Editor). Use this project as a template.
+Size on disk: ~400MB (see Installation Size). As compared to 1.5GB of Latex (with Editor). Use this project as a template.
 
 ## Result
 
@@ -23,4 +23,4 @@ Visual Studio Code: PDF Preview (using [vscode-pdf plugin](https://marketplace.v
 | Visual Studio Code | 220MB |
 | vscode-pdf plugin | 3MB |
 | Node/npm (markdown-it) | 40MB (~100kb) |
-| weasyprint | ~100MB (incl. python3) |
+| weasyprint | ~100MB - 250MB (incl. python3; larger on Windows) |
