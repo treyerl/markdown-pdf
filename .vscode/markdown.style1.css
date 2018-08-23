@@ -3,7 +3,9 @@
     size: 21cm 29.7cm;
     
     @bottom-right {
-        content: counter(page) " / " counter(pages) 
+        content: counter(page) " / " counter(pages);
+        font-family: 'Roboto', 'Helvetica-Neue', 'Arial';
+        font-weight: 300;
     }
     @top-right {
         background-image: url("git-logo.png");
@@ -15,18 +17,17 @@
     }
 }
 
-* {
-    font-family: 'Roboto', 'Helveticy-Neue', Arial;
+h1, h2, h3, h4, p, blockquote, table, li {
+    font-family: 'Roboto', 'Helvetica-Neue', Arial;
+    font-weight: 300;
 }
 
-body {
-    counter-reset: h2counter;
-    font-weight: 300;
+pre, pre code {
+    font-family: 'Monaco';
 }
 
 h1 {
     font-size: 2.1em;
-    font-family: 'Roboto', 'Helveticy-Neue', Arial;
     font-weight: 100;
     padding: 0.8em 0 1em 0;
     border-bottom: none;
@@ -35,20 +36,50 @@ h1 {
 
 h2 {
     font-size: 1.6em;
-    font-weight: 300;
     padding: 1.2em 0 0 0;
     color: cornflowerblue;
     counter-increment: h2counter;
+    counter-reset: h3counter;
 }
 h2::before {
     content: counter(h2counter, upper-alpha) ".\A0\A0\A0\A0"
 }
 
-p {
+h3 {
+    font-size: 1.3em;
+    margin-left: 10mm;
+    padding: 1em 0 0 0;
+    color: cornflowerblue;
+    counter-increment: h3counter;
+    counter-reset: h4counter;
+}
+h3::before {
+    content: counter(h3counter, upper-roman) ".\A0\A0"
+}
+
+h4 {
+    margin-left: 20mm;
+    color: cornflowerblue;
+    counter-increment: h4counter;
+}
+h4::before {
+    content: counter(h4counter, decimal) ".\A0"
+}
+
+p, li{
     line-height: 1.8em;
     hyphens: auto;
     text-align: justify;
-    font-weight: inherit;
+}
+
+li > p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* page numbers will be available with milestone 43 release of weasyprint; awesome!*/
+li > a::after {
+    content: target-counter(attr(href), page);
 }
 
 h1, h2, h3, h4 {
@@ -62,9 +93,19 @@ div.page-break {
 
 blockquote {
     background-color: #ccc;
-    padding: 2mm;
+    padding: 0 2mm 0 2mm;
     color: black;
-    border-left: 1mm solid lightslategrey  
+    border-left: 1mm solid rgb(67, 115, 247);  
+}
+
+pre, pre code.hljs {
+    background-color: #eee;
+}
+
+pre  {
+    padding: 2mm;
+    margin: 3mm;
+    border-radius: 2mm;
 }
 
 strong {
@@ -75,22 +116,34 @@ table {
     border-collapse: collapse;
     color: #333;
     margin: auto;
-  }
+}
 
-  tr:nth-child(even) {
+tr:nth-child(even) {
     background: #ccc;
-  }
+}
 
-  tr:nth-child(odd) {
+tr:nth-child(odd) {
     background: white;
-  }
+}
 
-  td, th {
+td, th {
     border: 1px solid #bbb;
     padding: 3mm;
-  }
+}
 
-  th {
+th {
     background: #777;
     text-align: center;
-  }
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}

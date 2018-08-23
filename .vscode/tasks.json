@@ -4,9 +4,16 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "md2pdf",
+            "label": ".md to .pdf",
             "type": "shell",
-            "command": "markdown-it ${file} -o ${fileDirname}/${fileBasenameNoExtension}.html && weasyprint ${fileDirname}/${fileBasenameNoExtension}.html ${fileDirname}/${fileBasenameNoExtension}.pdf -s ${workspaceFolder}/.vscode/markdown.style1.css -e utf8 && rm ${fileDirname}/${fileBasenameNoExtension}.html",
+            "command": "remark -u highlight.js -u html -u 'toc=maxDepth:4' -u mermaid -o tmp.html ${file} && for f in *.svg; do [ -e \"$f\" ] || continue; sed -i '' 's/<br>/<br\\/>/g' $f; done && weasyprint tmp.html ${fileBasenameNoExtension}.pdf -s ${workspaceFolder}/.vscode/markdown.style1.css -s .vscode/highlight.js/github.css -e utf8 && rm *.svg && rm tmp.html",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": ".md to .html",
+            "type": "shell",
+            "command": "remark -u html -u 'toc=maxDepth:4' -u mermaid -u highlight.js -o tmp.html ${file} && for f in *.svg; do [ -e \"$f\" ] || continue; sed -i '' 's/<br>/<br\\/>/g' $f; done && ./.vscode/html.sh Title \"$(cat tmp.html)\" > ${fileBasenameNoExtension}.html && rm tmp.html" ,
             "group": "build",
             "problemMatcher": []
         }
