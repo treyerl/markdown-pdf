@@ -41,3 +41,5 @@ Visual Studio Code: PDF Preview (using [vscode-pdf plugin](https://marketplace.v
 * Check out `windows-specific` branch when using powershell (on Windows)
 * When using a font family on `pre`-tag weasprint/pango fails to handle empty lines. As a workaround we only use a single font for `pre`-tags. Adjust the `css` according to your font available. (see [#415](https://github.com/Kozea/WeasyPrint/issues/415https://github.com/Kozea/WeasyPrint/issues/415))
 * Not all SVG's are printed correctly (`'NoneType' object has no attribute 'get'`).
+
+* weasyprint does not support MathML, but packages like [MathJAX](https://github.com/mathjax) would be able to convert Tex, AsciiMath, and MathML to SVG - unfortunately not `remark` plugin on that end.
